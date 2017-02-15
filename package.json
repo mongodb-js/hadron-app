@@ -24,10 +24,10 @@
   ],
   "dependencies": {
     "hadron-app-registry": "^4.0.0",
-    "hadron-auto-update-manager": "^0.0.12",
+    "hadron-auto-update-manager": "^0.0.14",
     "hadron-compile-cache": "^1.0.1",
-    "hadron-ipc": "^0.0.7",
-    "hadron-module-cache": "^0.0.3",
+    "hadron-ipc": "^0.0.8",
+    "hadron-module-cache": "^0.0.4",
     "hadron-package-manager": "0.2.0",
     "hadron-style-manager": "0.0.1"
   },
