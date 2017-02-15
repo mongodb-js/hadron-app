@@ -1,5 +1,7 @@
 # hadron-app [![][travis_img]][travis_url] [![][npm_img]][npm_url]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mongodb-js/hadron-app.svg)](https://greenkeeper.io/)
+
 ## Usage
 
 ```js
