@@ -5,7 +5,8 @@
   },
   "rules": {
     "camelcase": 1,
-    "eol-last": 0
+    "eol-last": 0,
+    "no-sync": 0
   },
   "extends": [
     "mongodb-js/node",
