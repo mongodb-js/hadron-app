@@ -23,6 +23,7 @@ const LESS = 'less';
  *
  * @param {String} root - The application root directory.
  * @param {Object} config - The application's distribution config.
+ * @param {Function} done - The callback function.
  */
 const initStyles = (root, config, done) => {
   /**
