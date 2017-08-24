@@ -15,6 +15,9 @@
   ],
   "scripts": {
     "ci": "npm run check && npm test",
+    "compile": "babel ./src --out-dir ./lib --presets react",
+    "pretest": "npm run compile",
+    "prepublish": "npm run compile",
     "test": "hadron-build test",
     "test-enzyme": "npm test -- --enzyme",
     "test-unit": "npm test -- --unit",
@@ -29,14 +32,19 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.7.2",
     "hadron-app-registry": "^6.0.0",
+    "hadron-compile-cache": "^1.0.1",
+    "hadron-module-cache": "0.0.4",
     "hadron-package-manager": "^4.0.0",
+    "hadron-react-components": "^1.9.1",
     "hadron-style-manager": "^0.1.0",
     "less": "^2.6.1",
     "less-cache": "^0.23.0",
+    "lodash.foreach": "^4.5.0",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "reflux": "0.4.1"
+    "reflux": "0.4.1",
+    "reflux-state-mixin": "^0.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",

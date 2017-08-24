@@ -4,7 +4,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const chaiEnzyme = require('chai-enzyme');
 const { shallow, mount } = require('enzyme');
-const Application = require('../../src/components/application');
+const Application = require('../../lib/components/application');
 
 chai.use(chaiEnzyme());
 
