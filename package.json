@@ -1,6 +1,6 @@
 {
   "name": "hadron-app",
-  "description": "Hadron Application Singleton",
+  "description": "Application Setup for Hadron Plugins",
   "author": "Durran Jordan <durran@gmail.com>",
   "bugs": "https://github.com/mongodb-js/hadron-app/issues",
   "homepage": "https://github.com/mongodb-js/hadron-app",
@@ -15,30 +15,41 @@
   ],
   "scripts": {
     "ci": "npm run check && npm test",
-    "test": "mocha --recursive",
+    "test": "hadron-build test",
+    "test-enzyme": "npm test -- --enzyme",
+    "test-unit": "npm test -- --unit",
     "fmt": "mongodb-js-fmt ./*.js ./test/*.js",
     "check": "mongodb-js-precommit"
   },
   "precommit": [
     "check"
   ],
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint-config-mongodb-js": "^2.2.0",
-    "mocha": "^3.2.0",
-    "mongodb-js-fmt": "^0.0.3",
-    "mongodb-js-precommit": "^0.2.9",
-    "pre-commit": "^1.1.2"
-  },
-  "peerDependencies": {
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-react": "^6.11.1",
     "babel-register": "^6.7.2",
     "hadron-app-registry": "^6.0.0",
+    "hadron-package-manager": "^4.0.0",
+    "hadron-style-manager": "^0.1.0",
     "less": "^2.6.1",
     "less-cache": "^0.23.0",
-    "mongodb-data-service": "^7.0.0",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "reflux": "0.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.8.0",
+    "enzyme": "^2.9.1",
+    "eslint-config-mongodb-js": "^2.2.0",
+    "hadron-build": "^14.0.0",
+    "jsdom": "^9.4.2",
+    "mocha": "^3.2.0",
+    "mongodb-js-fmt": "^0.0.3",
+    "mongodb-js-precommit": "^0.2.9",
+    "pre-commit": "^1.1.2",
+    "react-test-renderer": "^15.6.1"
   }
 }

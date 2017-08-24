@@ -1,4 +1,5 @@
 const React = require('react');
+const PropTypes = require('prop-types');
 
 /**
  * The name of the connect role.
@@ -30,8 +31,25 @@ class Application extends React.Component {
    * Initialize the application component, getting the role components.
    */
   initialize() {
-    this.connectRole = global.hadronApp.appRegistry.getRole(CONNECT_ROLE)[0];
-    this.workspaceRole = global.hadronApp.appRegistry.getRole(WORKSPACE_ROLE)[0];
+    const connectRoles = global.hadronApp.appRegistry.getRole(CONNECT_ROLE);
+    const workspaceRoles = global.hadronApp.appRegistry.getRole(WORKSPACE_ROLE);
+    if (connectRoles === undefined) {
+      this.raiseNotFound(CONNECT_ROLE);
+    }
+    if (workspaceRoles === undefined) {
+      this.raiseNotFound(WORKSPACE_ROLE);
+    }
+    this.connectRole = connectRoles[0];
+    this.workspaceRole = workspaceRoles[0]
+  }
+
+  /**
+   * Raises a not found error when roles are missing for the key.
+   *
+   * @param {String} role - The missing role.
+   */
+  raiseNotFound(role) {
+    throw new Error(`No roles found for '${role}'. Please ensure 1 is registered in the app registry.`);
   }
 
   /**
