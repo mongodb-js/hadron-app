@@ -15,10 +15,9 @@ const app = {
    *
    *   {
    *     "name": "mongodb-compass",
-   *     "packagePrefix": "@mongodb-js/compass",
-   *     "productName": "MongoDB Compass",
+   *     "pluginPrefix": "@mongodb-js/compass",
    *     "pluginsDirectory": ".mongodb/compass/plugins",
-   *     "packages": [
+   *     "plugins": [
    *       "node_modules/@mongodb-js/compass-serverstats",
    *       "node_modules/@mongodb-js/compass-document-validation",
    *       "node_modules/@mongodb-js/compass-deployment-awareness",
@@ -26,6 +25,7 @@ const app = {
    *       "node_modules/@mongodb-js/compass-crud",
    *       "node_modules/@mongodb-js/compass-query-history"
    *     ],
+   *     "productName": "MongoDB Compass",
    *     "stylesheet": "app/index.less"
    *   }
    */

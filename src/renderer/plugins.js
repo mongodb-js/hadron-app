@@ -26,7 +26,7 @@ const initPlugins = (root, config) => {
   const pluginManager = new PackageManager(
     [ internalPlugins, developerPlugins ],
     root,
-    config.packages
+    config.plugins
   );
 
   global.hadronApp.appRegistry = appRegistry;
