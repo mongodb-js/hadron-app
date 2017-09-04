@@ -1,5 +1,7 @@
 const React = require('react');
 const PropTypes = require('prop-types');
+const { Route, Router } = require('react-router');
+const { createMemoryHistory } = require('history');
 
 /**
  * The name of the connect role.
@@ -53,15 +55,30 @@ class Application extends React.Component {
   }
 
   /**
-   * Render the Hadron application.
+   * Renders the hadron application based on whether we are connected or not.
    *
-   * @returns {React.Component} The component.
+   * @returns {React.Component} - The application component.
    */
-  render() {
+  renderApplication() {
     if (this.props.isConnected) {
       return (<this.workspaceRole.component />);
     }
     return (<this.connectRole.component />);
+  }
+
+  /**
+   * Render the Hadron application, setting up the react router and root path.
+   *
+   * @returns {React.Component} The component.
+   */
+  render() {
+    return (
+      <Router history={createMemoryHistory()}>
+        <Route path="/" children={() => (
+          this.renderApplication()
+        )}/>
+      </Router>
+    );
   }
 }
 
