@@ -34,7 +34,7 @@
     "hadron-app-registry": "^6.0.0",
     "hadron-compile-cache": "^1.0.1",
     "hadron-module-cache": "0.0.4",
-    "hadron-package-manager": "^4.0.0",
+    "hadron-plugin-manager": "^5.0.0",
     "hadron-react-components": "^1.9.1",
     "hadron-style-manager": "^0.1.0",
     "history": "^4.7.2",

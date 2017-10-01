@@ -16,6 +16,13 @@ describe('<Application', () => {
   const Workspace = () => {
     return (<div className="workspace"></div>);
   };
+  const Preferences = () => {
+    return (<div className="preferences"></div>);
+  };
+  const FeatureTour = () => {
+    return (<div className="feature-tour"></div>);
+  };
+
   before(() => {
     global.hadronApp.appRegistry = new AppRegistry();
   });
@@ -52,12 +59,22 @@ describe('<Application', () => {
     before(() => {
       global.hadronApp.appRegistry.registerRole(Application.CONNECT_ROLE, { component: Connect });
       global.hadronApp.appRegistry.registerRole(Application.WORKSPACE_ROLE, { component: Workspace });
+      global.hadronApp.appRegistry.registerRole(Application.PREFERENCES_ROLE, { component: Preferences });
+      global.hadronApp.appRegistry.registerRole(Application.FEATURE_TOUR_ROLE, { component: FeatureTour });
     });
 
     context('when isConnected is false', () => {
       let wrapper;
       before(() => {
         wrapper = mount(<Application />);
+      });
+
+      it('renders the preferences', () => {
+
+      });
+
+      it('renders the feature tour', () => {
+
       });
 
       it('renders the Application.Connect role component', () => {

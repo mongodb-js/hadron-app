@@ -14,6 +14,21 @@ const CONNECT_ROLE = 'Application.Connect';
 const WORKSPACE_ROLE = 'Application.Workspace';
 
 /**
+ * The name of the preferences role.
+ */
+const PREFERENCES_ROLE = 'Application.Preferences';
+
+/**
+ * The name of the feature tour role.
+ */
+const FEATURE_TOUR_ROLE = 'Application.FeatureTour';
+
+/**
+ * The application class name.
+ */
+const APPLICATION = 'application';
+
+/**
  * The base Hadron application component, which controls rendering of the
  * workspace or connect role components.
  */
@@ -35,6 +50,8 @@ class Application extends React.Component {
   initialize() {
     const connectRoles = global.hadronApp.appRegistry.getRole(CONNECT_ROLE);
     const workspaceRoles = global.hadronApp.appRegistry.getRole(WORKSPACE_ROLE);
+    const preferencesRoles = global.hadronApp.appRegistry.getRole(PREFERENCES_ROLE);
+    const featureTourRoles = global.hadronApp.appRegistry.getRole(FEATURE_TOUR_ROLE);
     if (connectRoles === undefined) {
       this.raiseNotFound(CONNECT_ROLE);
     }
@@ -42,7 +59,9 @@ class Application extends React.Component {
       this.raiseNotFound(WORKSPACE_ROLE);
     }
     this.connectRole = connectRoles[0];
-    this.workspaceRole = workspaceRoles[0]
+    this.workspaceRole = workspaceRoles[0];
+    this.preferencesRole = preferencesRoles ? preferencesRoles[0] : undefined;
+    this.featureTourRole = featureTourRoles ? featureTourRoles[0] : undefined;
   }
 
   /**
@@ -52,6 +71,21 @@ class Application extends React.Component {
    */
   raiseNotFound(role) {
     throw new Error(`No roles found for '${role}'. Please ensure 1 is registered in the app registry.`);
+  }
+
+  renderApplication() {
+    if (this.props.isConnected) {
+      return (<this.workspaceRole.component />);
+    }
+    return (<this.connectRole.component />);
+  }
+
+  renderFeatureTour() {
+    return this.featureTourRole;
+  }
+
+  renderPreferences() {
+    return this.preferencesRole;
   }
 
   /**
@@ -75,7 +109,11 @@ class Application extends React.Component {
     return (
       <Router history={createMemoryHistory()}>
         <Route path="/" children={() => (
-          this.renderApplication()
+          <div className={APPLICATION}>
+            {this.renderPreferences()}
+            {this.renderFeatureTour()}
+            {this.renderApplication()}
+          </div>
         )}/>
       </Router>
     );
