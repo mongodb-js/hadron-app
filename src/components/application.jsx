@@ -81,11 +81,19 @@ class Application extends React.Component {
   }
 
   renderFeatureTour() {
-    return this.featureTourRole;
+    if (this.featureTourRole) {
+      return (
+        <this.featureTourRole.component />
+      );
+    }
   }
 
   renderPreferences() {
-    return this.preferencesRole;
+    if (this.preferencesRole) {
+      return (
+        <this.preferencesRole.component />
+      );
+    }
   }
 
   /**
@@ -133,3 +141,5 @@ Application.displayName = 'Application';
 module.exports = Application;
 module.exports.CONNECT_ROLE = CONNECT_ROLE;
 module.exports.WORKSPACE_ROLE = WORKSPACE_ROLE;
+module.exports.PREFERENCES_ROLE = PREFERENCES_ROLE;
+module.exports.FEATURE_TOUR_ROLE = FEATURE_TOUR_ROLE;

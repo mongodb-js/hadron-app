@@ -70,11 +70,11 @@ describe('<Application', () => {
       });
 
       it('renders the preferences', () => {
-
+        expect(wrapper.find('.preferences')).to.be.present();
       });
 
       it('renders the feature tour', () => {
-
+        expect(wrapper.find('.feature-tour')).to.be.present();
       });
 
       it('renders the Application.Connect role component', () => {
@@ -90,6 +90,14 @@ describe('<Application', () => {
       let wrapper;
       before(() => {
         wrapper = mount(<Application isConnected />);
+      });
+
+      it('renders the preferences', () => {
+        expect(wrapper.find('.preferences')).to.be.present();
+      });
+
+      it('renders the feature tour', () => {
+        expect(wrapper.find('.feature-tour')).to.be.present();
       });
 
       it('renders the Application.Workspace role component', () => {
