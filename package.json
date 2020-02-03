@@ -15,7 +15,8 @@
   ],
   "scripts": {
     "test": "mocha",
-    "check": "mongodb-js-precommit"
+    "check": "mongodb-js-precommit",
+    "ci": "npm run check && npm test"
   },
   "dependency-check": {
     "ignore": [
