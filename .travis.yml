@@ -7,3 +7,10 @@ install:
   - npm ci
 script: npm run ci
 cache: npm
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:ubuntu-toolchain-r/test'
+    packages:
+      - libkrb5-dev
+      - libsecret-1-dev
